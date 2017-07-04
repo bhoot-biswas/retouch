@@ -49,36 +49,9 @@ function retouch_lite_setup()
         array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' )
     );
 
-    /*
-     * Let WordPress manage the document title.
-     * By adding theme support, we declare that this theme does not use a
-     * hard-coded <title> tag in the document head, and expect WordPress to
-     * provide it for us.
-     */
-    add_theme_support('title-tag');
-
-    /*
-     * Enable support for Post Thumbnails on posts and pages.
-     *
-     * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-     */
-    add_theme_support('post-thumbnails');
-
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus(array(
         'menu-1' => esc_html__('Primary', 'retouch-lite'),
-    ));
-
-    /*
-     * Switch default core markup for search form, comment form, and comments
-     * to output valid HTML5.
-     */
-    add_theme_support('html5', array(
-        'search-form',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
     ));
 
     // Set up the WordPress core custom background feature.
@@ -101,22 +74,12 @@ function retouch_lite_setup()
         'flex-width'  => true,
         'flex-height' => true,
     ));
+
+    // Handle content width for embeds and images.
+    hybrid_set_content_width(640);
 }
 endif;
 add_action('after_setup_theme', 'retouch_lite_setup');
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function retouch_lite_content_width()
-{
-    $GLOBALS['content_width'] = apply_filters('retouch_lite_content_width', 640);
-}
-add_action('after_setup_theme', 'retouch_lite_content_width', 0);
 
 /**
  * Register widget area.
@@ -152,7 +115,7 @@ function retouch_lite_scripts()
 
     wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '20151215', true);
 
-    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('tether'), '20151215', true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('tether', 'popper'), '20151215', true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
