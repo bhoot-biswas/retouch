@@ -1,33 +1,25 @@
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
+input[type="color"],
 input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
-input[type="color"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
 textarea {
-	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
-	padding: 3px;
-
-	&:focus {
-		color: $color__text-input-focus;
-	}
+	@extend .form-control;
 }
 
 select {
-	border: 1px solid $color__border-input;
+	@extend .form-control;
 }
-
-textarea {
-	width: 100%;
-}
+// textarea {
+// 	width: 100%;
+// }
