@@ -24,8 +24,8 @@
 			}
 
 			li {
-				&:hover > ul,
-				&.focus > ul {
+				&.focus > ul,
+				&:hover > ul {
 					left: 100%;
 				}
 			}
@@ -34,17 +34,15 @@
 				width: 200px;
 			}
 
-			:hover > a,
-			.focus > a {
-			}
+			.focus > a,
+			:hover > a {}
 
-			a:hover,
-			a.focus {
-			}
+			a.focus,
+			a:hover {}
 		}
 
-		li:hover > ul,
-		li.focus > ul {
+		li.focus > ul,
+		li:hover > ul {
 			left: auto;
 		}
 	}
@@ -53,9 +51,8 @@
 		float: left;
 		position: relative;
 
-		&:hover > a,
-		&.focus > a {
-		}
+		&.focus > a,
+		&:hover > a {}
 	}
 
 	a {
@@ -63,32 +60,29 @@
 		text-decoration: none;
 	}
 
-	.current_page_item > a,
+	.current-menu-ancestor > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
+	.current_page_item > a {}
 }
-
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.main-navigation.toggled ul,
+.menu-toggle {
 	display: block;
 }
-
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
 		display: none;
 	}
+
 	.main-navigation ul {
 		display: block;
 	}
 }
 
 .comment-navigation,
-.posts-navigation,
-.post-navigation {
-
+.post-navigation,
+.posts-navigation {
 	.site-main & {
 		margin: 0 0 1.5em;
 		overflow: hidden;

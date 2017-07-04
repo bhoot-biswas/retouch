@@ -8,33 +8,33 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package _s
+ * @package Retouch_Lite
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses _s_header_style()
+ * @uses retouch_lite_header_style()
  */
-function _s_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( '_s_custom_header_args', array(
+function retouch_lite_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'retouch_lite_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => '_s_header_style',
+		'wp-head-callback'       => 'retouch_lite_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', '_s_custom_header_setup' );
+add_action( 'after_setup_theme', 'retouch_lite_custom_header_setup' );
 
-if ( ! function_exists( '_s_header_style' ) ) :
+if ( ! function_exists( 'retouch_lite_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog.
  *
- * @see _s_custom_header_setup().
+ * @see retouch_lite_custom_header_setup().
  */
-function _s_header_style() {
+function retouch_lite_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	/*

@@ -1,5 +1,5 @@
 /*!
-Theme Name: _s
+Theme Name: Retouch_Lite
 Theme URI: http://underscores.me/
 Author: Automattic
 Author URI: http://automattic.com/
@@ -7,7 +7,7 @@ Description: Hi. I'm a starter theme called <code>_s</code>, or <em>underscores<
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: _s
+Text Domain: retouch-lite
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
@@ -6888,17 +6888,6 @@ figure {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-a {
-  color: royalblue; }
-  a:visited {
-    color: purple; }
-  a:hover, a:focus, a:active {
-    color: midnightblue; }
-  a:focus {
-    outline: thin dotted; }
-  a:hover, a:active {
-    outline: 0; }
-
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -6922,13 +6911,13 @@ a {
       .main-navigation ul ul ul {
         left: -999em;
         top: 0; }
-      .main-navigation ul ul li:hover > ul,
-      .main-navigation ul ul li.focus > ul {
+      .main-navigation ul ul li.focus > ul,
+      .main-navigation ul ul li:hover > ul {
         left: 100%; }
       .main-navigation ul ul a {
         width: 200px; }
-    .main-navigation ul li:hover > ul,
-    .main-navigation ul li.focus > ul {
+    .main-navigation ul li.focus > ul,
+    .main-navigation ul li:hover > ul {
       left: auto; }
   .main-navigation li {
     float: left;
@@ -6938,8 +6927,8 @@ a {
     text-decoration: none; }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.main-navigation.toggled ul,
+.menu-toggle {
   display: block; }
 
 @media screen and (min-width: 37.5em) {
@@ -6949,20 +6938,20 @@ a {
     display: block; } }
 
 .site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
-.post-navigation {
+.post-navigation, .site-main
+.posts-navigation {
   margin: 0 0 1.5em;
   overflow: hidden; }
 
 .comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
+.post-navigation .nav-previous,
+.posts-navigation .nav-previous {
   float: left;
   width: 50%; }
 
 .comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
+.post-navigation .nav-next,
+.posts-navigation .nav-next {
   float: right;
   text-align: right;
   width: 50%; }
