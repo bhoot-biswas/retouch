@@ -92,10 +92,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
     display: none; }
   .badge {
     border: 1px solid #000; }
-  .table {
+  .table, table {
     border-collapse: collapse !important; }
-    .table td,
-    .table th {
+    .table td, table td,
+    .table th, table th {
       background-color: #fff !important; }
   .table-bordered th,
   .table-bordered td {
@@ -961,22 +961,22 @@ pre {
   .order-xl-12 {
     order: 12; } }
 
-.table {
+.table, table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent; }
-  .table th,
-  .table td {
+  .table th, table th,
+  .table td, table td {
     padding: 0.75rem;
     vertical-align: top;
     border-top: 1px solid #e9ecef; }
-  .table thead th {
+  .table thead th, table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #e9ecef; }
-  .table tbody + tbody {
+  .table tbody + tbody, table tbody + tbody {
     border-top: 2px solid #e9ecef; }
-  .table .table {
+  .table .table, table .table, .table table, table table {
     background-color: #fff; }
 
 .table-sm th,
@@ -5795,49 +5795,13 @@ big {
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-html {
-  box-sizing: border-box; }
-
-*,
-*:before,
-*:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-  box-sizing: inherit; }
-
-body {
-  background: #fff;
-  /* Fallback for when there is no custom background color defined. */ }
-
-blockquote, q {
+blockquote,
+q {
   quotes: "" ""; }
-  blockquote:before, blockquote:after, q:before, q:after {
+  blockquote:after, blockquote:before,
+  q:after,
+  q:before {
     content: ""; }
-
-hr {
-  background-color: #ccc;
-  border: 0;
-  height: 1px;
-  margin-bottom: 1.5em; }
-
-ul, ol {
-  margin: 0 0 1.5em 3em; }
-
-ul {
-  list-style: disc; }
-
-ol {
-  list-style: decimal; }
-
-li > ul,
-li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em; }
-
-dt {
-  font-weight: bold; }
-
-dd {
-  margin: 0 1.5em 1.5em; }
 
 img {
   height: auto;
@@ -5846,12 +5810,8 @@ img {
   /* Adhere to container width. */ }
 
 figure {
-  margin: 1em 0;
+  margin: 1rem 0;
   /* Extra wide images within figure tags don't overflow the content area. */ }
-
-table {
-  margin: 0 0 1.5em;
-  width: 100%; }
 
 /*--------------------------------------------------------------
 # Forms
