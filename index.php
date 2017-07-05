@@ -14,37 +14,37 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
-        if (have_posts()) :
-
-            if (is_home() && ! is_front_page()) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
 
 			<?php
-            endif;
+	        if (have_posts()) :
 
-            /* Start the Loop */
-            while (have_posts()) : the_post();
+	            if (is_home() && ! is_front_page()) : ?>
+					<header>
+						<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+					</header>
 
-                hybrid_get_content_template(); // Loads the content/*.php template.
+				<?php
+	            endif;
 
-            endwhile;
+	            /* Start the Loop */
+	            while (have_posts()) : the_post();
 
-            the_posts_pagination();
+	                hybrid_get_content_template(); // Loads the content/*.php template.
 
-        else :
+	            endwhile;
 
-            get_template_part('template-parts/content', 'none');
+	            the_posts_pagination();
 
-        endif; ?>
+	        else :
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	            get_template_part('content/error', 'index');
+
+	        endif; ?>
+
+			</main><!-- #main -->
+		</div><!-- #primary -->
 
 <?php
 get_sidebar();

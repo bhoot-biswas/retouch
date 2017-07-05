@@ -1,20 +1,24 @@
-.content-area {
-	float: left;
-	margin: 0 (-$size__site-sidebar) 0 0;
-	width: $size__site-main;
-}
+.site-content {
+	@extend .container;
 
-.site-main {
-	margin: 0 $size__site-sidebar 0 0;
-}
+	.wrap {
+		@include make-row();
+	}
 
-.site-content .widget-area {
-	float: right;
-	overflow: hidden;
-	width: $size__site-sidebar;
+	.content-area {
+		@include make-col-ready();
+		@include media-breakpoint-up(lg) {
+			 @include make-col(8);
+		}
+	}
+
+	.widget-area {
+		@include make-col-ready();
+		@include media-breakpoint-up(lg) {
+			 @include make-col(4);
+		}
+	}
 }
 
 .site-footer {
-	clear: both;
-	width: $size__site-main;
 }

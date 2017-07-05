@@ -7,7 +7,7 @@
  * @package Retouch_Lite
  */
 
-if (! is_active_sidebar('sidebar-1')) {
+if (! is_active_sidebar('sidebar-1') || ('1c' == hybrid_get_theme_layout())) {
     return;
 }
 ?>

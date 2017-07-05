@@ -1,82 +1,81 @@
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+.main-navigation {}
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+.site-branding {
+	@extend .navbar-brand;
+
+	.site-description,
+	.site-title {
+		margin-bottom: 0;
+	}
+
+	.site-title {
+		font-weight: inherit;
+		font-size: $navbar-brand-font-size;
+	}
+
+	.site-description {
+		font-size: $font-size-base;
+	}
+	@include media-breakpoint-up(lg) {
+		.site-description,
+		.site-title {
+			display: inline-block;
+		}
+	}
+}
+
+.menu {
+	@extend .ml-auto;
+}
+
+.nav-menu {
+	@extend .navbar-nav;
+
+	> li {
+		@extend .nav-item;
+
+		> a {
+			@extend .nav-link;
+		}
+	}
+
+	.page_item_has_children {
+		@extend .dropdown;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+			@extend .dropdown-menu;
 
 			ul {
-				left: -999em;
+				left: 100%;
 				top: 0;
 			}
 
-			li {
-				&.focus > ul,
-				&:hover > ul {
-					left: 100%;
-				}
-			}
-
 			a {
-				width: 200px;
+				@extend .dropdown-item;
 			}
-
-			.focus > a,
-			:hover > a {}
-
-			a.focus,
-			a:hover {}
 		}
 
-		li.focus > ul,
-		li:hover > ul {
-			left: auto;
+		> a {
+			@extend .dropdown-toggle;
+		}
+		@include hover-focus {
+			> ul {
+				display: block;
+			}
 		}
 	}
 
-	li {
-		float: left;
-		position: relative;
-
-		&.focus > a,
-		&:hover > a {}
+	.focus {
+		> ul {
+			display: block;
+		}
 	}
 
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current-menu-ancestor > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current_page_item > a {}
-}
-/* Small menu. */
-.main-navigation.toggled ul,
-.menu-toggle {
-	display: block;
-}
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: block;
+	.current-menu-ancestor,
+	.current-menu-item,
+	.current_page_ancestor,
+	.current_page_item {
+		@extend .show;
 	}
 }
 
