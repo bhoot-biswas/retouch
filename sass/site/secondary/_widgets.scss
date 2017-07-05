@@ -1,7 +1,19 @@
 .widget {
-	margin: 0 0 $spacer;
+	margin: 0 0 ($spacer * 3);
 	/* Make sure select elements fit in widgets. */
+	&:last-child {
+		margin-bottom: 0;
+	}
+
 	select {
 		max-width: 100%;
 	}
+
+	ul {
+		@extend .list-unstyled;
+	}
+}
+
+.widget-title {
+	font-size: $h6-font-size;
 }

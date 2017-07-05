@@ -1,24 +1,35 @@
 .site-content {
 	@extend .container;
+	padding-top: $spacer * 5;
+	padding-bottom: $spacer * 5;
 
 	.wrap {
 		@include make-row();
 	}
 
-	.content-area {
+	.content-area,
+	.widget-area {
 		@include make-col-ready();
+		@include media-breakpoint-down(md) {
+			margin-bottom: $spacer * 5;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.content-area {
 		@include media-breakpoint-up(lg) {
 			 @include make-col(8);
 		}
 	}
 
 	.widget-area {
-		@include make-col-ready();
 		@include media-breakpoint-up(lg) {
 			 @include make-col(4);
 		}
 	}
 }
 
-.site-footer {
-}
+.site-footer {}

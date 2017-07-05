@@ -435,7 +435,7 @@ mark,
   padding: 0.2em;
   background-color: #fcf8e3; }
 
-.list-unstyled {
+.list-unstyled, .widget ul {
   padding-left: 0;
   list-style: none; }
 
@@ -7229,41 +7229,76 @@ figure {
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-  margin: 0 0 1rem;
+  margin: 0 0 3rem;
   /* Make sure select elements fit in widgets. */ }
+  .widget:last-child {
+    margin-bottom: 0; }
   .widget select {
     max-width: 100%; }
+
+.widget-title {
+  font-size: 1rem; }
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-.site-content .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px; }
-
-.site-content .content-area {
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px; }
+.site-content {
+  padding-top: 5rem;
+  padding-bottom: 5rem; }
+  .site-content .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px; }
+  .site-content .content-area,
+  .site-content .widget-area {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px; }
+    @media (max-width: 991px) {
+      .site-content .content-area,
+      .site-content .widget-area {
+        margin-bottom: 5rem; }
+        .site-content .content-area:last-child,
+        .site-content .widget-area:last-child {
+          margin-bottom: 0; } }
   @media (min-width: 992px) {
     .site-content .content-area {
       flex: 0 0 66.66667%;
       max-width: 66.66667%; } }
-
-.site-content .widget-area {
-  position: relative;
-  width: 100%;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px; }
   @media (min-width: 992px) {
     .site-content .widget-area {
       flex: 0 0 33.33333%;
       max-width: 33.33333%; } }
+
+.site-footer .widget-area {
+  padding: 5rem 0;
+  background-color: #f8f9fa; }
+  .site-footer .widget-area .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px; }
+  .site-footer .widget-area .widget-column {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px; }
+    @media (min-width: 992px) {
+      .site-footer .widget-area .widget-column {
+        flex: 0 0 25%;
+        max-width: 25%; } }
+    @media (max-width: 991px) {
+      .site-footer .widget-area .widget-column {
+        margin-bottom: 3rem; }
+        .site-footer .widget-area .widget-column:last-child {
+          margin-bottom: 0; } }
+
+.site-footer .site-info {
+  padding: 2rem 0; }
 
 /*--------------------------------------------------------------
 ## Posts and pages

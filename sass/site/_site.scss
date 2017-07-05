@@ -1,11 +1,40 @@
 @import "../layout/content-sidebar";
 @import "../layout/sidebar-content";
+
+.site-footer {
+    .widget-area {
+        padding: ($spacer * 5) 0;
+        background-color: $gray-100;
+
+        .wrap {
+            @include make-row();
+        }
+
+        .widget-column {
+            @include make-col-ready();
+
+            @include media-breakpoint-up(lg) {
+                 @include make-col(3);
+            }
+
+            @include media-breakpoint-down(md) {
+                margin-bottom: $spacer * 3;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .site-info {
+        padding: ($spacer * 2) 0;
+    }
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-@import "primary/posts-and-pages";
-
-/*--------------------------------------------------------------
+@import "primary/posts-and-pages"; /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
 @import "primary/comments";
