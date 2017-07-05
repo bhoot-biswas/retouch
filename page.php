@@ -20,7 +20,7 @@ get_header(); ?>
 			<?php
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', 'page' );
+				hybrid_get_content_template(); // Loads the content/*.php template.
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :

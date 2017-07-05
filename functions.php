@@ -88,14 +88,34 @@ add_action('after_setup_theme', 'retouch_lite_setup');
  */
 function retouch_lite_widgets_init()
 {
-    register_sidebar(array(
-        'name'          => esc_html__('Sidebar', 'retouch-lite'),
+    hybrid_register_sidebar(array(
+        'name'          => esc_html__('Primary', 'retouch-lite'),
         'id'            => 'sidebar-1',
-        'description'   => esc_html__('Add widgets here.', 'retouch-lite'),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'description'   => esc_html__('Add widgets here to appear in your sidebar on blog posts and archive pages.', 'retouch-lite'),
+    ));
+
+    hybrid_register_sidebar(array(
+        'name'          => esc_html__('Footer 1', 'retouch-lite'),
+        'id'            => 'sidebar-2',
+        'description'   => esc_html__('Add widgets here to appear in your footer.', 'retouch-lite'),
+    ));
+
+    hybrid_register_sidebar(array(
+        'name'          => esc_html__('Footer 2', 'retouch-lite'),
+        'id'            => 'sidebar-3',
+        'description'   => esc_html__('Add widgets here to appear in your footer.', 'retouch-lite'),
+    ));
+
+    hybrid_register_sidebar(array(
+        'name'          => esc_html__('Footer 3', 'retouch-lite'),
+        'id'            => 'sidebar-4',
+        'description'   => esc_html__('Add widgets here to appear in your footer.', 'retouch-lite'),
+    ));
+
+    hybrid_register_sidebar(array(
+        'name'          => esc_html__('Footer 4', 'retouch-lite'),
+        'id'            => 'sidebar-5',
+        'description'   => esc_html__('Add widgets here to appear in your footer.', 'retouch-lite'),
     ));
 }
 add_action('widgets_init', 'retouch_lite_widgets_init');
@@ -105,21 +125,33 @@ add_action('widgets_init', 'retouch_lite_widgets_init');
  */
 function retouch_lite_scripts()
 {
-    wp_enqueue_style('retouch-lite-style', get_stylesheet_uri());
-
+    // Fix navigation on mobile
     wp_enqueue_script('retouch-lite-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
 
+    // Skip link fix
     wp_enqueue_script('retouch-lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
+    // Bootstrap need tether
     wp_enqueue_script('tether', get_template_directory_uri() . '/js/tether.min.js', array('jquery'), '20151215', true);
 
+    // Bootstrap need popper
     wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '20151215', true);
 
+    // Finally enqueue bootstrap
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('tether', 'popper'), '20151215', true);
 
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
+    // Load gallery style if 'cleaner-gallery' is active.
+    if (current_theme_supports('cleaner-gallery')) {
+        wp_enqueue_style('hybrid-gallery');
     }
+
+    // Load parent theme stylesheet if child theme is active.
+    if (is_child_theme()) {
+        wp_enqueue_style('hybrid-parent');
+    }
+
+    // Load active theme stylesheet.
+    wp_enqueue_style('hybrid-style');
 }
 add_action('wp_enqueue_scripts', 'retouch_lite_scripts');
 
