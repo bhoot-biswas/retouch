@@ -29,10 +29,10 @@ function retouch_lite_jetpack_setup() {
 	add_theme_support( 'jetpack-content-options', array(
 		'post-details' => array(
 			'stylesheet' => 'hybrid-style',
-			'date'       => '.posted-on',
-			'categories' => '.cat-links',
-			'tags'       => '.tags-links',
-			'author'     => '.byline',
+			'date'       => '.entry-published',
+			'categories' => '.entry-terms-category',
+			'tags'       => '.entry-terms-post_tag',
+			'author'     => '.entry-author',
 			'comment'    => '.comments-link',
 		),
 	) );
