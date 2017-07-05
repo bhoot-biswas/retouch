@@ -81,6 +81,36 @@ function retouch_lite_setup()
 endif;
 add_action('after_setup_theme', 'retouch_lite_setup');
 
+
+/**
+ * Registers layouts.
+ */
+function retouch_lite_register_layouts()
+{
+    hybrid_register_layout(
+        '1c',
+        array(
+            'label' => esc_html__('1 Column', 'retouch-lite'),
+            'image' => '%s/images/layouts/1c.png'
+        )
+    );
+    hybrid_register_layout(
+        '2c-l',
+        array(
+            'label' => esc_html__('2 Columns: Content / Sidebar', 'retouch-lite'),
+            'image' => '%s/images/layouts/2c-l.png'
+        )
+    );
+    hybrid_register_layout(
+        '2c-r',
+        array(
+            'label' => esc_html__('2 Columns: Sidebar / Content', 'retouch-lite'),
+            'image' => '%s/images/layouts/2c-r.png'
+        )
+    );
+}
+add_action( 'hybrid_register_layouts', 'retouch_lite_register_layouts' );
+
 /**
  * Register widget area.
  *
