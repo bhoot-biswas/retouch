@@ -109,7 +109,7 @@ function retouch_lite_register_layouts()
         )
     );
 }
-add_action( 'hybrid_register_layouts', 'retouch_lite_register_layouts' );
+add_action('hybrid_register_layouts', 'retouch_lite_register_layouts');
 
 /**
  * Register widget area.
@@ -155,21 +155,6 @@ add_action('widgets_init', 'retouch_lite_widgets_init');
  */
 function retouch_lite_scripts()
 {
-    // Fix navigation on mobile
-    wp_enqueue_script('retouch-lite-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
-
-    // Skip link fix
-    wp_enqueue_script('retouch-lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
-
-    // Bootstrap need tether
-    wp_enqueue_script('tether', get_template_directory_uri() . '/js/tether.min.js', array('jquery'), '20151215', true);
-
-    // Bootstrap need popper
-    wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '20151215', true);
-
-    // Finally enqueue bootstrap
-    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('tether', 'popper'), '20151215', true);
-
     // Load gallery style if 'cleaner-gallery' is active.
     if (current_theme_supports('cleaner-gallery')) {
         wp_enqueue_style('hybrid-gallery');
@@ -182,6 +167,15 @@ function retouch_lite_scripts()
 
     // Load active theme stylesheet.
     wp_enqueue_style('hybrid-style');
+
+    wp_enqueue_script('retouch-lite-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
+
+    wp_enqueue_script('retouch-lite-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
+
+    // Popper.js first, then Bootstrap JS.
+    wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '20151215', true);
+
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('popper'), '20151215', true);
 }
 add_action('wp_enqueue_scripts', 'retouch_lite_scripts');
 
